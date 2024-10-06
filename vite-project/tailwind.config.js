@@ -13,7 +13,7 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			background: '#EDEDED', // Changed from 'hsl(var(--background))' to '#EDEDED'
+  			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -43,11 +43,11 @@ export default {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
-			customPurple: {
-				DEFAULT: '#6400FF',
-				foreground: '#B290E7',
-			},
-			customShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.5)',
+  			customPurple: {
+  				DEFAULT: '#6400FF',
+  				foreground: '#B290E7'
+  			},
+  			customShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.5)',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
@@ -60,7 +60,7 @@ export default {
   			}
   		},
   		fontFamily: {
-  			sans: ['"DM Sans"', 'sans-serif'],
+  			sans: ['DM Sans"', 'sans-serif']
   		}
   	}
   },

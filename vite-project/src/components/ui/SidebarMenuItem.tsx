@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { MenuItem } from '@/config/sidebarMenu'
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/shadcn/badge"
 
 interface SidebarMenuItemProps {
   item: MenuItem

@@ -1,5 +1,5 @@
 import React from 'react'
-import SidebarMenuItem from '@/components/SidebarMenuItem'
+import SidebarMenuItem from '@/components/ui/SidebarMenuItem'
 import { sidebarMenu } from '@/config/sidebarMenu'
 
 interface DashboardSidebarProps {
@@ -9,7 +9,7 @@ interface DashboardSidebarProps {
 const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ isAdmin }) => {
   return (
     <div className="flex h-screen w-[280px] flex-col p-4 bg-transparent">
-      <div className="flex flex-col w-full border h-full bg-white rounded-lg shadow-lg">
+      <div className="flex flex-col w-full border h-full bg-white rounded-lg shadow-lg dark:bg-gray-800"> {/* Add dark mode background */}
         <div className="flex items-center pb-2 flex-col px-6 lg:h-[60px]">
           <div className="text-lg h-14 flex items-end pb-2 w-full font-light tracking-tighter">Freellustrations</div>
           <div className="line border-b w-full"></div>

@@ -1,5 +1,5 @@
 import { Slash } from "lucide-react";
-import { Breadcrumb } from "@/components/Breadcrumb";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 
 export function BreadcrumbWithCustomSeparator() {
   const breadcrumbItems = [
