@@ -21,9 +21,12 @@ interface BreadcrumbProps {
   separator?: React.ReactNode;
 }
 
-export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, separator = <Slash /> }) => {
+export const Breadcrumb: React.FC<BreadcrumbProps> = ({
+  items,
+  separator = <Slash />,
+}) => {
   return (
-    <UiBreadcrumb className="pt-2 pb-3">
+    <UiBreadcrumb className="pt-2 pb-3 w-fit z-20">
       <BreadcrumbList>
         {items.map((item, index) => (
           <React.Fragment key={index}>

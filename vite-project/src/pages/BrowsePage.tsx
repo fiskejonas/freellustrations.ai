@@ -1,6 +1,47 @@
 import React, { useState } from "react";
-import ContentFilterTab from "@/components/ui/ContentFilterTab";
-import UploadButton from "@/components/ui/UploadButton";
+import ContentFilterTabs from "@/components/ui/ContentFilterTab";
+import ImageCard from "@/components/layout/ImageCard";
+
+// Sample data; remember to delete when database is ready
+const popularImages = [
+  {
+    id: 1,
+    title: "Beautiful Sunset",
+    src: "/placeholder.svg?height=200&width=300",
+    user: {
+      name: "John Doe",
+      avatar: "/placeholder.svg?height=32&width=32",
+      joined: "Joined December 2021",
+    },
+    tags: ["#nature", "#sunset", "#photography"],
+    stats: {
+      likes: "2.5k",
+      comments: "100",
+      views: "10.2k",
+      uploaded: "Uploaded 2 hours ago",
+    },
+  },
+];
+
+const newImages = [
+  {
+    id: 2,
+    title: "Morning Dew",
+    src: "/placeholder.svg?height=200&width=300",
+    user: {
+      name: "Jane Smith",
+      avatar: "/placeholder.svg?height=32&width=32",
+      joined: "Joined January 2022",
+    },
+    tags: ["#morning", "#dew", "#nature"],
+    stats: {
+      likes: "1.8k",
+      comments: "80",
+      views: "8.5k",
+      uploaded: "Uploaded 5 hours ago",
+    },
+  },
+];
 
 const BrowsePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("popular");
@@ -21,16 +62,15 @@ const BrowsePage: React.FC = () => {
           </h2>
         </div>
         <div className="flex ml-auto items-center gap-2">
-          <ContentFilterTab onTabChange={handleTabChange} />
-          <UploadButton className="ml-auto">Upload</UploadButton>
+          <ContentFilterTabs onTabChange={handleTabChange} />
         </div>
       </div>
-      <div className="mt-4">
-        {activeTab === "popular" ? (
-          <p>Displaying popular content...</p>
-        ) : (
-          <p>Displaying new content...</p>
-        )}
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {activeTab === "popular"
+          ? popularImages.map((image) => (
+              <ImageCard key={image.id} {...image} />
+            ))
+          : newImages.map((image) => <ImageCard key={image.id} {...image} />)}
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ export default function UploadButton({
     <div className="flex flex-col items-center gap-4">
       <Button
         variant="outline"
-        className={`w-fit bg-slate-800 text-slate-100 border-slate-100 ${className}`}
+        className={`w-fit h-full hover:bg-foreground hover:text-background border-neutral-400 bg-background text-foreground ${className}`}
         onClick={() => document.getElementById("fileInput")?.click()}
       >
         <Upload className="mr-2 h-4 w-4" />
