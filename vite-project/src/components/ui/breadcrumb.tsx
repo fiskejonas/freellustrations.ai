@@ -1,14 +1,6 @@
 import React from "react";
 import { Slash } from "lucide-react";
 import { Link } from "react-router-dom";
-import {
-  Breadcrumb as UiBreadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/shadcn/breadcrumb-primitive";
 
 export interface BreadcrumbItemType {
   label: string;
@@ -26,25 +18,41 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   separator = <Slash />,
 }) => {
   return (
-    <UiBreadcrumb className="pt-2 pb-3 w-fit z-20">
-      <BreadcrumbList>
+    <nav aria-label="breadcrumb" className="pt-2 pb-3 w-fit z-20">
+      <ol className="flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5">
         {items.map((item, index) => (
           <React.Fragment key={index}>
-            <BreadcrumbItem>
+            <li className="inline-flex items-center gap-1.5">
               {item.href && !item.current ? (
-                <BreadcrumbLink asChild>
-                  <Link to={item.href}>{item.label}</Link>
-                </BreadcrumbLink>
+                <Link
+                  to={item.href}
+                  className="transition-colors hover:text-foreground"
+                >
+                  {item.label}
+                </Link>
               ) : (
-                <BreadcrumbPage>{item.label}</BreadcrumbPage>
+                <span
+                  role="link"
+                  aria-disabled="true"
+                  aria-current="page"
+                  className="font-normal text-foreground"
+                >
+                  {item.label}
+                </span>
               )}
-            </BreadcrumbItem>
+            </li>
             {index < items.length - 1 && (
-              <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>
+              <li
+                role="presentation"
+                aria-hidden="true"
+                className="[&>svg]:size-3.5"
+              >
+                {separator}
+              </li>
             )}
           </React.Fragment>
         ))}
-      </BreadcrumbList>
-    </UiBreadcrumb>
+      </ol>
+    </nav>
   );
 };

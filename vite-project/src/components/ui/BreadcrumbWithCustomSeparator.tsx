@@ -1,4 +1,4 @@
-import { Slash } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 
 export function BreadcrumbWithCustomSeparator() {
@@ -8,5 +8,5 @@ export function BreadcrumbWithCustomSeparator() {
     { label: "Breadcrumb", current: true },
   ];
 
-  return <Breadcrumb items={breadcrumbItems} separator={<Slash />} />;
+  return <Breadcrumb items={breadcrumbItems} separator={<ChevronRight />} />;
 }
