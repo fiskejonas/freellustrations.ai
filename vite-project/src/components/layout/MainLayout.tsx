@@ -3,10 +3,18 @@ import DashboardSidebar from "./Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Slash } from "lucide-react";
-import ModeToggle from "../ui/ModeToggle"; // Import the ModeToggle component
+import ModeToggle from "../ui/ModeToggle";
 
-const MainLayout: React.FC = () => {
-  const isAdmin = true;
+interface MainLayoutProps {
+  user: {
+    initials: string;
+    name: string;
+    email: string;
+  };
+  isAdmin: boolean;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ user, isAdmin }) => {
   const location = useLocation();
 
   // Helper function to capitalize the first letter
@@ -38,13 +46,12 @@ const MainLayout: React.FC = () => {
 
   return (
     <div className="flex h-screen">
-      <DashboardSidebar isAdmin={isAdmin} />
+      <DashboardSidebar isAdmin={isAdmin} user={user} />
       <div className="flex-1 flex flex-col relative">
         {/* Header */}
         <header className="flex justify-start mt-2 items-center p-4 bg-transparent fixed top-0 right-0 left-[280px] z-10">
           <Breadcrumb items={breadcrumbItems} separator={<Slash />} />
           <div className="w-fit ml-auto">
-            {" "}
             <ModeToggle />
           </div>
         </header>
