@@ -1,2 +1,2 @@
-Create a database with the name 'free_illustrations_db'.
-By default, the password is rootpassword in the docker-compose file.
+Run the command docker-compose up --build
+This should create a database called free_illustrations_db

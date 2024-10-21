@@ -5,11 +5,15 @@ services:
     image: mysql:8.0
     container_name: mysql_db
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     networks:
       - backend
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./server/src/sql/initdb:/docker-entrypoint-initdb.d
     ports:
       - "3307:3306"
     restart: always
@@ -20,7 +24,7 @@ services:
       context: ./server
       dockerfile: Dockerfile
     environment:
-      DOCKER_MYSQL_URL: mysql://root:rootpassword@mysql_db:3306/free_illustrations_db
+      DOCKER_MYSQL_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql_db:3306/${MYSQL_DATABASE}
     networks:
       - frontend
       - backend
