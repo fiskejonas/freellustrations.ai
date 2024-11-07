@@ -33,7 +33,7 @@ jobs:
       # Runs the docker-compose  
     - name: Run Docker Compose for services
       run: |
-        docker-compose -f docker-compose.yml up -d --build
+        docker-compose up -d --build
 
       # Runs all tests  
 #    - name: Run tests
