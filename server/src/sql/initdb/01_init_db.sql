@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
     bio VARCHAR(255),
     is_blocked BOOLEAN DEFAULT FALSE,
     created_at BIGINT NOT NULL,
-    updated_at BIGINT NOT NULL,
+    updated_at BIGINT DEFAULT NULL,
     deleted_at BIGINT DEFAULT NULL,
     is_admin BOOLEAN DEFAULT FALSE
 );
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS posts (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     created_at BIGINT NOT NULL,
-    updated_at BIGINT NOT NULL,
+    updated_at BIGINT DEFAULT NULL,
     deleted_at BIGINT DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS comments (
     post_id INT NOT NULL,
     content TEXT NOT NULL,
     created_at BIGINT NOT NULL,
-    updated_at BIGINT NOT NULL,
+    updated_at BIGINT DEFAULT NULL,
     deleted_at BIGINT DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(id) ON UPDATE CASCADE ON DELETE CASCADE
