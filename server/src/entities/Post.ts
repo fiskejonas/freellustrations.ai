@@ -1,23 +1,49 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from './User';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, ManyToMany, JoinTable } from "typeorm";
+import { User } from "./User";
+import { Comment } from "./Comment";
+import { Like } from "./Like";
+import { Tag } from "./Tag";
+import { View } from "./View";
 
-@Entity("posts")
+@Entity()
 export class Post {
-    @PrimaryGeneratedColumn({ type: "int", name: "id" })
+    @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column({ type: 'varchar', nullable: true })
-    image!: string;
+    @Column()
+    user_id!: number;
 
-    @Column({ type: 'int', default: 0 })
-    comments!: number;
+    @Column()
+    image_url!: string;
 
-    @Column({ type: 'int', default: 0 })
-    likes!: number;
+    @Column()
+    title!: string;
 
-    @Column({ type: 'int', default: 0 })
-    views!: number;
+    @Column({ type: "text", nullable: true })
+    description: string = "";
 
-    @ManyToOne(() => User, user => user.posts)
+    @Column()
+    created_at!: number;
+
+    @Column({ nullable: true })
+    updated_at: number | null = null;
+
+    @Column({ nullable: true })
+    deleted_at: number | null = null;
+
+    @ManyToOne(() => User, (user) => user.posts, { onDelete: "CASCADE" })
     user!: User;
+
+    @OneToMany(() => Comment, (comment) => comment.post)
+    comments: Comment[] = [];
+
+    @OneToMany(() => Like, (like) => like.post)
+    likes: Like[] = [];
+
+    @ManyToMany(() => Tag, (tag) => tag.posts)
+    @JoinTable()
+    tags: Tag[] = [];
+
+    @OneToMany(() => View, (view) => view.post)
+    views: View[] = [];
 }
