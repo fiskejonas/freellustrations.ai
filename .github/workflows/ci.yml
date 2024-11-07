@@ -31,9 +31,11 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
 
       # Runs the docker-compose  
-    - name: Run Docker Compose for services
-      run: |
-        docker-compose up -d --build
+      # This does not work atm, we need to add secrets to github
+#    - name: Run Docker Compose for services
+#      run: |
+#        docker-compose up -d --build
+        
 
       # Runs all tests  
 #    - name: Run tests

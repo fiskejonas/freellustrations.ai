@@ -41,7 +41,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     environment:
-      CHOKIDAR_USEPOLLING: true
+      CHOKIDAR_USEPOLLING: "true"
     volumes:
       - ./client:/app
       - /app/node_modules
