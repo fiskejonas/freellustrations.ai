@@ -18,7 +18,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   separator = <Slash />,
 }) => {
   return (
-    <nav aria-label="breadcrumb" className="pt-2 pb-3 w-fit z-20">
+    <nav aria-label="breadcrumb" className="pt-2 w-full z-20">
       <ol className="flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5">
         {items.map((item, index) => (
           <React.Fragment key={index}>
