@@ -17,26 +17,23 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   user,
 }) => {
   return (
-    <div className="flex h-screen w-[280px] flex-col p-4 bg-transparent">
-      <div className="flex flex-col w-full border h-full bg-white rounded-lg shadow-lg dark:bg-[#292929]">
-        <div className="flex w-full py-2 flex-col">
-          <div className="m-4 w-fit h-full rounded-lg flex">
-            <img
-              className="invert dark:invert-0 w-fit h-5"
-              src="/freellustrations_logo.svg"
-              alt="Logo"
-            />
-          </div>
-          <div className="line border-b dark:border-foreground dark:opacity-30 w-full"></div>
+    <div className="flex h-full w-fit flex-col p-4 bg-transparent">
+      <div className="flex flex-col items-center w-fit border h-full bg-white rounded-lg shadow-lg dark:bg-[#292929]">
+        <div className="flex w-full p-6 items-center justify-center flex-col">
+          <img
+            className="dark:invert max-w-full h-auto w-8"
+            src="/logo.svg"
+            alt="Logo"
+          />
         </div>
-        <div className="flex-1">
+        <div className="flex w-fit">
           <nav className="grid items-start px-4 text-sm font-medium">
             {sidebarMenu.map((item) => (
               <SidebarMenuItem key={item.path} item={item} isAdmin={isAdmin} />
             ))}
           </nav>
         </div>
-        <div className="mt-auto p-4 usersettings">
+        <div className="mt-auto flex flex-col items-center p-4 usersettings">
           <UserSettingsDialog user={user} />
         </div>
       </div>

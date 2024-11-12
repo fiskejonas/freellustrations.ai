@@ -38,14 +38,8 @@ export default function UserSettingsDialog({ user }: UserSettingsDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="flex items-center gap-3 rounded-lg px-3 py-4 border cursor-pointer">
-          <div className="h-8 w-8 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm font-semibold">
-            {user.initials}
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-medium">{user.name}</span>
-            <span className="text-xs text-muted-foreground">{user.email}</span>
-          </div>
+        <div className="h-8 w-8 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm font-semibold">
+          {user.initials}
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] flex flex-col">

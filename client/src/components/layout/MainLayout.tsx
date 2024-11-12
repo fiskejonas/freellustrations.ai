@@ -49,16 +49,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, isAdmin }) => {
       <DashboardSidebar isAdmin={isAdmin} user={user} />
       <div className="flex-1 flex flex-col relative">
         {/* Header */}
-        <header className="flex justify-start mt-2 items-center p-4 bg-transparent fixed top-0 right-0 left-[280px] z-10">
+        <header className="flex justify-start items-center px-4 pt-6 bg-transparent z-10">
           <Breadcrumb items={breadcrumbItems} separator={<Slash />} />
           <div className="w-fit ml-auto">
             <ModeToggle />
           </div>
         </header>
-        {/* Spacer to prevent content from being hidden behind the fixed header */}
-        <div className="h-10"></div>
         {/* Main Content */}
-        <div className="flex-1 p-4 overflow-auto">
+        <div className="flex-1 px-4 pb-4 overflow-auto">
           <Outlet />
         </div>
       </div>
