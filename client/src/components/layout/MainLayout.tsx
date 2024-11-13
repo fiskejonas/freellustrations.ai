@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardSidebar from "./Sidebar";
+import DashboardSidebar from "./menu/Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Slash } from "lucide-react";
