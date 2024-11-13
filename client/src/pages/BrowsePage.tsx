@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ContentFilterTabs from "@/components/ui/ContentFilterTab";
-import ImageCard from "@/components/layout/ImageCard";
+import ImageCard from "@/components/layout/card/ImageCard";
 
 // Sample data; remember to delete when database is ready
 const popularImages = [
@@ -9,7 +9,7 @@ const popularImages = [
     title: "Beautiful Sunset",
     src: "/placeholder.svg?height=200&width=300",
     user: {
-      name: "John Doe",
+      name: "JaneDoe123",
       avatar: "/placeholder.svg?height=32&width=32",
       joined: "Joined December 2021",
     },
@@ -18,7 +18,7 @@ const popularImages = [
       likes: "2.5k",
       comments: "100",
       views: "10.2k",
-      uploaded: "Uploaded 2 hours ago",
+      uploaded: "2d ago",
     },
   },
 ];
@@ -29,7 +29,7 @@ const newImages = [
     title: "Morning Dew",
     src: "/placeholder.svg?height=200&width=300",
     user: {
-      name: "Jane Smith",
+      name: "JaneSmith49",
       avatar: "/placeholder.svg?height=32&width=32",
       joined: "Joined January 2022",
     },
@@ -38,7 +38,7 @@ const newImages = [
       likes: "1.8k",
       comments: "80",
       views: "8.5k",
-      uploaded: "Uploaded 5 hours ago",
+      uploaded: "2h ago",
     },
   },
 ];
